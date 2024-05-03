@@ -1,0 +1,76 @@
+﻿@model CreateVM 
+<div class="row">
+    <div class="col-9">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Create new account</h5>
+
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Name" class="form-label">Fullname</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                     <div class="mb-3 form-group">Username</label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Choose role</label>
+                        <select class="form-control" name="role">
+                            @foreach (string role in ViewBag.Roles)
+                            {
+                                <option value="@role">@role</option>
+                            }
+
+
+                        </select>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label asp-for="Password" class="form-label">Password</label>
+                        <input asp-for="Password" class="form-control" />
+                        <a class="login-toggle-btn" id="togglePassword">Show password</a>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label asp-for="CheckPassword" class="form-label">Re-type password</label>
+                        <input asp-for="CheckPassword" class="form-control" />
+                        <a class="login-toggle-btn" id="togglePassword">Show password</a>
+                        <span asp-validation-for="CheckPassword" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <a asp-action="Index" class="btn btn-danger">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    const togglePassword = document
+        .querySelector('#togglePassword');
+    const Password = document.querySelector('#Password');
+    togglePassword.addEventListener('click', () => {
+        // Toggle the type attribute using
+        // getAttribure() method
+        const type = Password
+            .getAttribute('type') === 'Password' ?
+            'text' : 'Password';
+        Password.setAttribute('type', type);
+        // Toggle the eye and bi-eye icon
+        this.classList.toggle('bi-eye');
+    });
+</script>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

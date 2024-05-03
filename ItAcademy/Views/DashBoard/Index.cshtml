@@ -1,0 +1,74 @@
+﻿@model List<Courses>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div style="text-align:center;" class="brand-logo">
+                <img src="../../images/bytewise.png" alt="logo">
+             </div>
+            @*  <div class="card-header" style="display:flex; justify-content:space-between; text-align:center; ">
+                 <h1 style="background-color:red; color:white; font-size:xx-large; ">
+                    ByteWise Academy kursunun idarə etmə sistemi
+                </h3> 
+               
+            </div> *@
+          @*  <div class="table-responsive" style="margin-top:10px">
+
+                <table id="myDash" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Kurs</th>
+                            <th>Müddət</th>
+                            <th>Qiymət</th>
+                            <th>Status</th>
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Courses item in Model)
+                        {
+                            <tr>
+
+                                <td>@item.Name</td>
+                                <td>@item.CoursesDuration</td>
+                                <td>@item.Mark</td>
+                                <td>
+                                    @if (item.IsDeactive)
+                                    {
+                                        <span style="padding:1px 2px; background-color:red;color:white">İşləmir</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="padding:1px 2px; background-color:green;color:white">İşləyir</span>
+                                    }
+                                </td>
+                                
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>*@
+        </div>
+    </div>
+</div>
+@*@section Css{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+    
+}
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    
+
+    <!-- DataTable yalnız bir dəfə yaradıldığından əmin olmaq üçün əlavə şərt -->
+    <script>
+
+        let table = new DataTable('#myDash');
+      
+    </script>
+}
+*@

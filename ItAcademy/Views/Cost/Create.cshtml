@@ -1,0 +1,46 @@
+﻿@model Cost
+<div class="row">
+    <div class="col-9">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Add Expense</h5>
+
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Amount" class="form-label">Amount</label>
+                        <input asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+
+
+                    @*
+                    <div class="mb-3 form-group">
+                    <label asp-for="By" class="form-label">Daxil edən şəxs</label>
+                    <input asp-for="By" class="form-control" />
+                    <span asp-validation-for="By" class="text-danger"></span>
+
+                    </div>*@
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Description" class="form-label">Information</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <a asp-action="Index" class="btn btn-danger">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

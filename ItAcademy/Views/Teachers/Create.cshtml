@@ -1,0 +1,71 @@
+﻿@model Teachers
+<div class="row">
+    <div class="col-9">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Add Teacher/h5>
+                <div class="mb-0 text-danger" asp-validation-summary="ModelOnly">
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    
+                    <div class="mb-3 form-group">
+                        <label asp-for="Photo" class="form-label">Photo</label>
+                        <input asp-for="Photo" accept="image/*" class="form-control" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Name" class="form-label">Fullname</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div> 
+                    <div class="mb-3 form-group">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input type="email" asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label asp-for="PhoneNumber" class="form-label">Mobil *((994) 70-301-23-94)</label>
+                        <input type="text" asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Salary" class="form-label">Salary</label>
+                        <input asp-for="Salary" class="form-control" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label asp-for="Birthday" class="form-label">Birthdate</label>
+                        <input type="date" asp-for="Birthday" class="form-control" />
+                        <span asp-validation-for="Birthday" class="text-danger"></span>
+
+                    </div>
+               
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Specialty</label>
+                        <select class="form-control" name="CatId">
+                            @foreach (Courses cat in ViewBag.Courses)
+                            {
+                                <option value="@cat.Id">@cat.Name</option>
+                            }
+                        </select>
+                    </div>
+                
+
+                    <button type="submit" class="btn btn-primary">Add teacher</button>
+                    <a asp-action="Index"  class="btn btn-danger">Back</a>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

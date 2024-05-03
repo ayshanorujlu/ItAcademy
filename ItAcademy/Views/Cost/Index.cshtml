@@ -1,0 +1,91 @@
+﻿@model List<Cost>
+<hr class="my-5" />
+
+<!-- Bordered Table -->
+<div class="card">
+    <div class="card-header" style="display:flex;justify-content:space-between">
+        <h5 style="font-size:larger">Expenses</h5>
+        <div>
+            <a asp-action="Create" class="btn btn-danger text-white rounded-pill" style="margin-right:10px">Add</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table id="myCost" class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Information</th>
+                        <th>Date</th>
+                        <th>By Whom</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Cost item in Model)
+                    {
+                        <tr>
+                            <td>- @item.Amount AZN</td>
+                            <td>@item.Description</td>
+                            <td>@item.CreateTime</td>
+                            <td>@item.By</td>
+                          
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @* <div class="d-flex justify-content-center mt-3">
+        <nav aria-label="...">
+        <ul class="pagination">
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Geri</a>
+        </li>
+        @for (int i = 1; i <= ViewBag.PageCount; i++)
+        {
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+        }
+
+
+        <li class="page-item">
+        <a class="page-link" href="#">İrəli</a>
+        </li>
+        </ul>
+        </nav>
+        </div>*@
+    </div>
+</div>
+@section Css{
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" />
+}
+@section Scripts{
+   
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            if (!$.fn.DataTable.isDataTable('#myCost')) {
+                $('#myCost').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+            }
+        });
+
+    </script>
+}
+<!--/ Bordered Table -->

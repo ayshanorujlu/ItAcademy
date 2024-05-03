@@ -1,0 +1,90 @@
+﻿@model Employers
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header" style="display:flex;justify-content:space-between">
+
+                <div>
+                    <a asp-action="Index" class="btn btn-danger text-white rounded-pill" style="margin-right:10px">Back</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+
+                <table id="myIshchi" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Fullname</th>
+                            <th>Birthdate</th>
+                            <th>Salary</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th>Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <td>  <img src="~/../../images/@Model.Image" alt="image" style="width:100px ;height:100px; border-radius:100px" /></td>
+                    <td>@Model.Name</td>
+                    <td>@Model.Birthday?.ToShortDateString()</td>
+                    <td>@Model.Salary AZN</td>
+                    <td>@Model.PhoneNumber</td>
+                    <td>@Model.Email</td>
+
+                    <td>@Model.Positions.Name</td>
+                    <td>
+                            @if (Model.IsDeactive)
+                            {
+                            <span style="padding:1px 2px; background-color:red;color:white">Not Working</span>
+                            }
+                            else
+                            {
+                            <span style="padding:1px 2px; background-color:green;color:white">Working</span>
+                            }
+                    </td>
+                    <td>
+                    </td>
+                    </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section Css{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" />
+}
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+    <!-- DataTable yalnız bir dəfə yaradıldığından əmin olmaq üçün əlavə şərt -->
+    <script>
+        $(document).ready(function () {
+            if (!$.fn.DataTable.isDataTable('#myIshchi')) {
+                $('#myIshchi').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+            }
+        });
+    </script>
+}
+*@

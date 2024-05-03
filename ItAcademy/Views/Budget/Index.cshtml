@@ -1,0 +1,88 @@
+﻿@model Budget
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card position-relative">
+            <div class="card-body">
+                <div id="detailedReports" class="carousel slide detailed-report-carousel position-static pt-2" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-6  d-flex flex-column justify-content-start">
+                                    <div @*class="ml-xl-4 mt-3"*@>
+                                        <div class="col-md-9 mb-4 stretch-card transparent">
+                                            <div class="card card-dark-blue">
+                                                <div class="card-body">
+                                                    <p class="mb-4" style="font-size:larger">Budget</p>
+                                                    <p class="fs-30 mb-2">
+                                                        <h5> @Model.TotalBudget AZN</h5
+                                                           </p>
+                                                           <p class="fs-30 mb-2">
+                                                        <h6> The person in charge:  @Model.LastModifiedBy</h6
+                                                           </p>
+                                                           <p class="fs-30 mb-2">
+                                                        <h6> Last modified:  @Model.LastModifiedAmount AZN</h6
+                                                           </p>
+                                                            <p class="fs-30 mb-2">
+                                                        <h6> Changeover time: @Model.LastModifiedDate</h6
+                                                           </p>
+                                                            <p class="fs-30 mb-2">
+                                                        <h6> Information: @Model.LastModifiedDescription</h6
+                                                           </p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                       @* <p class="card-title">Büdcə</p>
+                                        <h6 class="text-primary">Kassada olan məbləğ:  AZN @Model.TotalBudget</h6>
+                                        <h6 class="font-weight-50 mb-xl-4 text-primary">Kassada olan son dəyişiklik: AZN  @Model.LastModifiedAmount</h6>
+                                        <h6 class="font-weight-50 mb-xl-4 text-primary">Məhsul şəxs:  @Model.LastModifiedBy</h6>
+                                        <h6 class="font-weight-50 mb-xl-4 text-primary">Dəyişmə vaxtı : @Model.LastModifiedDate</h6>
+                                        <h6 class="font-weight-50 mb-xl-4 text-primary"> Məlumat: @Model.LastModifiedDescription</h6>
+                                       *@
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                       
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="col-md-6 grid-margin transparent">
+    <div class="row">
+        <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="card card-tale">
+                <div class="card-body">
+                    <p class="mb-4">Today’s Bookings</p>
+                    <p class="fs-30 mb-2">4006</p>
+                    <p>10.00% (30 days)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="card card-dark-blue">
+                <div class="card-body">
+                    <p class="mb-4">Total Bookings</p>
+                    <p class="fs-30 mb-2">61344</p>
+                    <p>22.00% (30 days)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+            <div class="card card-light-blue">
+                <div class="card-body">
+                    <p class="mb-4">Number of Meetings</p>
+                    <p class="fs-30 mb-2">34040</p>
+                    <p>2.00% (30 days)</p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>*@
