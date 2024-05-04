@@ -99,6 +99,11 @@ namespace ItAcademy.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
 
         //public async Task  CreateRoles()
         //{

@@ -207,7 +207,7 @@ namespace ItAcademy.Controllers
         {
             var students = await _Db.Students
             .Include(s => s.GroupStudent)
-                .ThenInclude(sg => sg.Groups).FirstOrDefaultAsync();
+                .ThenInclude(sg => sg.Groups).Where(x=>x.Id==id).FirstOrDefaultAsync();
            
            
             ViewBag.Courses = await _Db.Courses.ToListAsync();

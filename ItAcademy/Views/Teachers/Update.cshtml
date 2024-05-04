@@ -27,7 +27,7 @@
                     
                     <div class="mb-3 form-group">
                         <label asp-for="PhoneNumber" class="form-label">Phone number *|(+994) 70-301-23-94|</label>
-                        <input asp-for="PhoneNumber" class="form-control" />
+                        <input asp-for="PhoneNumber" class="form-control" oninput="validatePhoneNumber(this)" />
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
 
@@ -75,6 +75,26 @@
     </div>
 
 </div>
+<script>
+    function validatePhoneNumber(input) {
+        const phoneNumberPattern = /^\(\d{3}\) \d{2}-\d{3}-\d{2}-\d{2}$/;
+        const phoneNumber = input.value.trim();
+        const errorSpan = input.nextElementSibling;
+
+
+        if (phoneNumber.includes(' ')) {
+
+            input.value = phoneNumber.replace(/\s+/g, '');
+        }
+
+
+        if (!phoneNumberPattern.test(phoneNumber)) {
+            errorSpan.textContent = "Number format is not true";
+        } else {
+            errorSpan.textContent = "";
+        }
+    }
+</script>
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }

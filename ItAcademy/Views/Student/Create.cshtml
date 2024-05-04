@@ -3,7 +3,8 @@
     <div class="col-9">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"></h5>
+                <h5 class="mb-0">Add Student</h5>
+
 
             </div>
             <div class="card-body">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="mb-3 form-group">
                         <label asp-for="Mobil" class="form-label">Phone number *|(+994) 70-301-23-94|</label>
-                        <input type="text" asp-for="Mobil" class="form-control" />
+                        <input type="text" asp-for="Mobil" class="form-control" oninput="validatePhoneNumber(this)" />
                         <span asp-validation-for="Mobil" class="text-danger"></span>
                     </div>
 
@@ -77,6 +78,26 @@
     </div>
 
 </div>
+<script>
+    function validatePhoneNumber(input) {
+        const phoneNumberPattern = /^\(\d{3}\) \d{2}-\d{3}-\d{2}-\d{2}$/;
+        const phoneNumber = input.value.trim();
+        const errorSpan = input.nextElementSibling;
+
+        
+        if (phoneNumber.includes(' ')) {
+            
+            input.value = phoneNumber.replace(/\s+/g, '');
+        }
+
+        
+        if (!phoneNumberPattern.test(phoneNumber)) {
+            errorSpan.textContent = "Number format is not true";
+        } else {
+            errorSpan.textContent = "";
+        }
+    }
+</script>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

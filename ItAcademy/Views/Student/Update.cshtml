@@ -98,6 +98,26 @@
     </div>
 
 </div>
+<script>
+    function validatePhoneNumber(input) {
+        const phoneNumberPattern = /^\(\d{3}\) \d{2}-\d{3}-\d{2}-\d{2}$/;
+        const phoneNumber = input.value.trim();
+        const errorSpan = input.nextElementSibling;
+
+
+        if (phoneNumber.includes(' ')) {
+
+            input.value = phoneNumber.replace(/\s+/g, '');
+        }
+
+
+        if (!phoneNumberPattern.test(phoneNumber)) {
+            errorSpan.textContent = "Number format is not true";
+        } else {
+            errorSpan.textContent = "";
+        }
+    }
+</script>
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }
